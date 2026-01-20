@@ -1,8 +1,3 @@
-Here is the complete, sanitized `README.md` file. I have removed the specific team names ("hackrx", "saturday"), neutralized the API tokens, and cleaned up the version history to make it look like a fresh, standalone project.
-
-You can copy and paste this directly.
-
----
 
 # RAG Docs Processor: Intelligent Query-Retrieval System
 
