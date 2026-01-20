@@ -1,38 +1,45 @@
-# LLM-Powered Intelligent Query-Retrieval System v2.0
+Here is the complete, sanitized `README.md` file. I have removed the specific team names ("hackrx", "saturday"), neutralized the API tokens, and cleaned up the version history to make it look like a fresh, standalone project.
+
+You can copy and paste this directly.
+
+---
+
+# RAG Docs Processor: Intelligent Query-Retrieval System
 
 🚀 **High-Performance** document analysis and query system optimized for **sub-15 second responses** with advanced caching and parallel processing.
 
 ## ⚡ Performance Features
 
-- **Sub-15 Second Responses**: Optimized pipeline achieving 4-12 second response times
-- **Multi-Layer Caching**: Redis + semantic similarity + in-memory caching
-- **Smart Model Routing**: Claude-3-Haiku for simple queries, GPT-4-Turbo for complex analysis
-- **Parallel Processing**: Concurrent question processing and async pipelines
-- **Hot Document Indexing**: FAISS in-memory search for frequently accessed documents
-- **Cost Optimization**: 60-80% cost reduction through intelligent caching
+* **Sub-15 Second Responses**: Optimized pipeline achieving 4-12 second response times
+* **Multi-Layer Caching**: Redis + semantic similarity + in-memory caching
+* **Smart Model Routing**: Claude-3-Haiku for simple queries, GPT-4-Turbo for complex analysis
+* **Parallel Processing**: Concurrent question processing and async pipelines
+* **Hot Document Indexing**: FAISS in-memory search for frequently accessed documents
+* **Cost Optimization**: 60-80% cost reduction through intelligent caching
 
 ## 🎯 Core Features
 
-- **Multi-format Document Processing**: PDF, DOCX, and email document support
-- **Hybrid Vector Search**: Qdrant + Pinecone with semantic and keyword matching
-- **LLM-Powered Responses**: Dual-model architecture for optimal speed/accuracy
-- **Explainable AI**: Detailed reasoning, confidence scores, and source citations
-- **Real-time Performance Monitoring**: Comprehensive metrics and health checks
-- **Scalable Architecture**: Docker containerization with Redis, Qdrant, and PostgreSQL
+* **Multi-format Document Processing**: PDF, DOCX, and email document support
+* **Hybrid Vector Search**: Qdrant + Pinecone with semantic and keyword matching
+* **LLM-Powered Responses**: Dual-model architecture for optimal speed/accuracy
+* **Explainable AI**: Detailed reasoning, confidence scores, and source citations
+* **Real-time Performance Monitoring**: Comprehensive metrics and health checks
+* **Scalable Architecture**: Docker containerization with Redis, Qdrant, and PostgreSQL
 
 ## 🏗️ Optimized System Architecture
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Input Docs    │    │  Smart Caching   │    │  Model Router   │
-│  PDF/DOCX/Email │───▶│ Redis + Semantic │───▶│ Claude/GPT-4    │
+│    Input Docs   │    │   Smart Caching  │    │   Model Router  │
+│  PDF/DOCX/Email │───▶│ Redis + Semantic │───▶│  Claude/GPT-4   │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
-         │                       │                       │
-         ▼                       ▼                       ▼
+         │                        │                        │
+         ▼                        ▼                        ▼
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│Document Processor│    │ Vector Search    │    │ Response Gen    │
-│Parallel Chunking │───▶│ Qdrant + FAISS  │───▶│Sub-15s Response │
+│Document Processor│    │   Vector Search  │    │   Response Gen  │
+│Parallel Chunking │───▶│  Qdrant + FAISS  │───▶│Sub-15s Response │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
+
 ```
 
 **Performance Pipeline:**
@@ -47,12 +54,12 @@
 
 ### Prerequisites
 
-- Python 3.11+
-- **Primary**: Anthropic API key (Claude-3-Haiku)
-- **Fallback**: OpenAI API key (GPT-4-Turbo + Embeddings)
-- Docker and Docker Compose (recommended)
-- Redis server (provided via Docker)
-- Qdrant server (provided via Docker)
+* Python 3.11+
+* **Primary**: Anthropic API key (Claude-3-Haiku)
+* **Fallback**: OpenAI API key (GPT-4-Turbo + Embeddings)
+* Docker and Docker Compose (recommended)
+* Redis server (provided via Docker)
+* Qdrant server (provided via Docker)
 
 ### Installation
 
@@ -61,8 +68,9 @@
 1. **Clone the repository**
 
 ```bash
-git clone <repository-url>
-cd saturday
+git clone https://github.com/Aman-S-Rajput/RAG-docs-processor.git
+cd rag-docs-processor
+
 ```
 
 2. **Set up environment**
@@ -70,6 +78,7 @@ cd saturday
 ```bash
 cp .env.example .env
 # Edit .env with your API keys (ANTHROPIC_API_KEY, OPENAI_API_KEY)
+
 ```
 
 3. **Start services only (for development)**
@@ -80,6 +89,7 @@ docker-compose -f docker-compose.dev.yml up -d
 
 # Check services are running
 docker-compose -f docker-compose.dev.yml ps
+
 ```
 
 4. **Run the application locally**
@@ -90,6 +100,7 @@ pip install -r requirements.txt
 
 # Run the FastAPI application
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
 ```
 
 #### Option 2: Full Stack with Docker
@@ -100,6 +111,7 @@ docker-compose --profile full up --build
 
 # Or run without the app profile (services only)
 docker-compose up -d
+
 ```
 
 #### Option 3: Manual Installation
@@ -107,8 +119,9 @@ docker-compose up -d
 1. **Clone the repository**
 
 ```bash
-git clone <repository-url>
-cd saturday
+git clone https://github.com/Aman-S-Rajput/RAG-docs-processor.git
+cd rag-docs-processor
+
 ```
 
 2. **Set up environment**
@@ -116,12 +129,14 @@ cd saturday
 ```bash
 cp .env.example .env
 # Edit .env with your API keys
+
 ```
 
 3. **Install dependencies**
 
 ```bash
 pip install -r requirements.txt
+
 ```
 
 4. **Start external services manually**
@@ -130,12 +145,14 @@ pip install -r requirements.txt
 # You'll need to install and run Redis and Qdrant manually
 # Redis: redis-server
 # Qdrant: https://qdrant.tech/documentation/quick-start/
+
 ```
 
 5. **Run the application**
 
 ```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
 ```
 
 ### 🐳 Docker Deployment (Recommended)
@@ -151,13 +168,15 @@ docker-compose ps
 
 # View logs
 docker-compose logs -f app
+
 ```
 
 **Manual Docker Build:**
 
 ```bash
-docker build -t intelligent-query-v2 .
-docker run -p 8000:8000 --env-file .env intelligent-query-v2
+docker build -t intelligent-query-engine .
+docker run -p 8000:8000 --env-file .env intelligent-query-engine
+
 ```
 
 **Performance Testing:**
@@ -165,13 +184,14 @@ docker run -p 8000:8000 --env-file .env intelligent-query-v2
 ```bash
 # Test the optimized system
 python test_api_sample.py
+
 ```
 
 ## API Usage
 
 ### Main Endpoint
 
-**POST** `/api/v1/hackrx/run`
+**POST** `/api/v1/engine/run`
 
 Process documents and answer questions:
 
@@ -184,6 +204,7 @@ Process documents and answer questions:
     "What is the waiting period for pre-existing diseases?"
   ]
 }
+
 ```
 
 **Optimized Response:**
@@ -212,6 +233,7 @@ Process documents and answer questions:
     }
   }
 }
+
 ```
 
 ### Authentication
@@ -219,55 +241,56 @@ Process documents and answer questions:
 All API endpoints require Bearer token authentication:
 
 ```bash
-curl -H "Authorization: Bearer f187d1bc4df8a6a7e6cba86fc31bdedfcce699eac885b85570bb61c6d6e8c7f2" \
-     -X POST "http://localhost:8000/api/v1/hackrx/run" \
+curl -H "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
+     -X POST "http://localhost:8000/api/v1/engine/run" \
      -H "Content-Type: application/json" \
      -d @request.json
+
 ```
 
 ### 🚀 Performance & Management Endpoints
 
-- **GET** `/api/v1/health` - Health check
-- **GET** `/api/v1/hackrx/performance` - Performance metrics and statistics
-- **POST** `/api/v1/hackrx/batch` - Optimized batch question processing
-- **POST** `/api/v1/hackrx/warm-up` - Pre-warm system with common documents
-- **POST** `/api/v1/hackrx/clear-cache` - Clear all caches for fresh start
-- **POST** `/api/v1/hackrx/analyze` - Document structure analysis
+* **GET** `/api/v1/health` - Health check
+* **GET** `/api/v1/engine/performance` - Performance metrics and statistics
+* **POST** `/api/v1/engine/batch` - Optimized batch question processing
+* **POST** `/api/v1/engine/warm-up` - Pre-warm system with common documents
+* **POST** `/api/v1/engine/clear-cache` - Clear all caches for fresh start
+* **POST** `/api/v1/engine/analyze` - Document structure analysis
 
 ## Configuration
 
 ### Environment Variables
 
-| Variable               | Description                  | Default                  |
-| ---------------------- | ---------------------------- | ------------------------ |
-| `ANTHROPIC_API_KEY`    | Anthropic API key (Primary)  | Required                 |
-| `OPENAI_API_KEY`       | OpenAI API key (Fallback)    | Required                 |
-| `REDIS_URL`            | Redis cache server           | `redis://localhost:6379` |
-| `QDRANT_HOST`          | Qdrant vector DB host        | `localhost`              |
-| `TARGET_RESPONSE_TIME` | Performance target (seconds) | `15`                     |
-| `CHUNK_SIZE`           | Optimized chunk size         | `1500`                   |
-| `MAX_TOKENS`           | Max LLM tokens               | `1500`                   |
+| Variable | Description | Default |
+| --- | --- | --- |
+| `ANTHROPIC_API_KEY` | Anthropic API key (Primary) | Required |
+| `OPENAI_API_KEY` | OpenAI API key (Fallback) | Required |
+| `REDIS_URL` | Redis cache server | `redis://localhost:6379` |
+| `QDRANT_HOST` | Qdrant vector DB host | `localhost` |
+| `TARGET_RESPONSE_TIME` | Performance target (seconds) | `15` |
+| `CHUNK_SIZE` | Optimized chunk size | `1500` |
+| `MAX_TOKENS` | Max LLM tokens | `1500` |
 
 ### ⚙️ Performance Tuning
 
 **Model Configuration:**
 
-- **Primary LLM**: Claude-3-Haiku (3x faster than GPT-4)
-- **Complex Queries**: Auto-fallback to GPT-4-Turbo
-- **Embeddings**: OpenAI text-embedding-3-large (reduced to 1536D)
+* **Primary LLM**: Claude-3-Haiku (3x faster than GPT-4)
+* **Complex Queries**: Auto-fallback to GPT-4-Turbo
+* **Embeddings**: OpenAI text-embedding-3-large (reduced to 1536D)
 
 **Caching Strategy:**
 
-- **Redis TTL**: Documents (2h), Embeddings (24h), Q&A (30m)
-- **Semantic Cache**: 95% similarity threshold for question matching
-- **Hot Documents**: Top 10 documents kept in FAISS memory
+* **Redis TTL**: Documents (2h), Embeddings (24h), Q&A (30m)
+* **Semantic Cache**: 95% similarity threshold for question matching
+* **Hot Documents**: Top 10 documents kept in FAISS memory
 
 **Performance Targets:**
 
-- **Response Time**: 4-12 seconds (target: <15s)
-- **Cache Hit Rate**: 60-80% for repeated queries
-- **Token Efficiency**: 60-80% reduction vs baseline
-- **Concurrency**: 50 concurrent requests supported
+* **Response Time**: 4-12 seconds (target: <15s)
+* **Cache Hit Rate**: 60-80% for repeated queries
+* **Token Efficiency**: 60-80% reduction vs baseline
+* **Concurrency**: 50 concurrent requests supported
 
 ## Development
 
@@ -288,6 +311,7 @@ services/
 ├── fast_vector_service.py         # Qdrant + FAISS operations
 ├── optimized_llm_service.py       # Claude + GPT-4 routing
 └── optimized_retrieval_service.py # High-performance orchestration
+
 ```
 
 ### 🧪 Running Performance Tests
@@ -303,15 +327,16 @@ pytest tests/ -v
 
 # Performance benchmarking
 pytest tests/ -v --benchmark-only
+
 ```
 
 **Test Coverage:**
 
-- ✅ Sub-15 second response validation
-- ✅ Cache performance and hit rates
-- ✅ Concurrent request handling
-- ✅ Model routing efficiency
-- ✅ Memory usage optimization
+* ✅ Sub-15 second response validation
+* ✅ Cache performance and hit rates
+* ✅ Concurrent request handling
+* ✅ Model routing efficiency
+* ✅ Memory usage optimization
 
 ### Code Quality
 
@@ -324,66 +349,53 @@ mypy app/
 
 # Linting
 flake8 app/
+
 ```
 
 ## Evaluation Metrics
 
 The system is optimized for:
 
-- **Accuracy**: Precision of query understanding and clause matching
-- **Token Efficiency**: Optimized LLM token usage and cost-effectiveness
-- **Latency**: Response speed and real-time performance
-- **Reusability**: Modular code and extensible architecture
-- **Explainability**: Clear reasoning and source traceability
+* **Accuracy**: Precision of query understanding and clause matching
+* **Token Efficiency**: Optimized LLM token usage and cost-effectiveness
+* **Latency**: Response speed and real-time performance
+* **Reusability**: Modular code and extensible architecture
+* **Explainability**: Clear reasoning and source traceability
 
-## 📊 Performance Benchmarks
+## 📊 System Benchmarks
 
-### V2.0 Optimized Performance
+### System Performance Metrics
 
-| Metric           | Target        | Achieved   | Improvement         |
-| ---------------- | ------------- | ---------- | ------------------- |
-| Response Time    | < 15s         | 4-12s      | 70-75% faster       |
-| Cache Hit Rate   | > 60%         | 60-80%     | New feature         |
-| Token Usage      | < 2000/query  | 1200-1800  | 40-50% reduction    |
-| Accuracy         | > 85%         | 87-94%     | Maintained/improved |
-| Confidence Score | > 0.8         | 0.85-0.95  | Maintained          |
-| Cost per Request | 60% reduction | $0.02-0.04 | 75% savings         |
-| Concurrent Users | 50+           | Tested: 50 | 5x improvement      |
-
-### Performance Comparison
-
-**Before Optimization (v1.0):**
-
-- Response Time: 16-40 seconds
-- No caching system
-- Single model (GPT-4 only)
-- Sequential processing
-
-**After Optimization (v2.0):**
-
-- Response Time: 4-12 seconds ⚡
-- Multi-layer caching with 60-80% hit rate 🚀
-- Smart model routing (Claude-3-Haiku + GPT-4) 🧠
-- Parallel processing pipeline ⚙️
+| Metric | Target | Achieved | Status |
+| --- | --- | --- | --- |
+| Response Time | < 15s | 4-12s | 🟢 Optimized |
+| Cache Hit Rate | > 60% | 60-80% | 🟢 High Efficiency |
+| Token Usage | < 2000/query | 1200-1800 | 🟢 Reduced |
+| Accuracy | > 85% | 87-94% | 🟢 High Accuracy |
+| Confidence Score | > 0.8 | 0.85-0.95 | 🟢 High Confidence |
+| Cost per Request | Minimize | $0.02-0.04 | 🟢 Low Cost |
+| Concurrent Users | 50+ | Tested: 50 | 🟢 Scalable |
 
 ## Troubleshooting
 
 ### Common Issues
 
 1. **Authentication Errors**
+* Verify API key in Authorization header
+* Check `.env` file configuration
 
-   - Verify API key in Authorization header
-   - Check `.env` file configuration
 
 2. **Document Processing Failures**
+* Ensure document URL is accessible
+* Check file format (PDF, DOCX supported)
+* Verify file size limits
 
-   - Ensure document URL is accessible
-   - Check file format (PDF, DOCX supported)
-   - Verify file size limits
 
 3. **Embedding Service Issues**
-   - Verify Pinecone API key and index configuration
-   - Check OpenAI API key and rate limits
+* Verify Pinecone API key and index configuration
+* Check OpenAI API key and rate limits
+
+
 
 ### Health Checks
 
@@ -391,6 +403,7 @@ Monitor system health:
 
 ```bash
 curl http://localhost:8000/api/v1/health
+
 ```
 
 ## Contributing
@@ -408,6 +421,6 @@ This project is licensed under the MIT License.
 
 For issues and questions:
 
-- Create an issue in the repository
-- Check the troubleshooting section
-- Review the API documentation
+* Create an issue in the repository
+* Check the troubleshooting section
+* Review the API documentation
